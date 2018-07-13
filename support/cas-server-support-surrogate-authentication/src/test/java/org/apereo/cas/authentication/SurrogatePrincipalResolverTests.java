@@ -40,7 +40,7 @@ public class SurrogatePrincipalResolverTests {
         val credential = CoreAuthenticationTestUtils.getCredentialsWithSameUsernameAndPassword();
         val p = resolver.resolve(credential);
         assertNotNull(p);
-        assertTrue(p.getId().equals("TEST"));
+        assertEquals("TEST", p.getId());
     }
 
     @Test
@@ -60,6 +60,6 @@ public class SurrogatePrincipalResolverTests {
         val p = resolver.resolve(credential, Optional.of(CoreAuthenticationTestUtils.getPrincipal("casuser")),
             Optional.of(new SimpleTestUsernamePasswordAuthenticationHandler()));
         assertNotNull(p);
-        assertTrue(p.getId().equals("casuser"));
+        assertEquals("casuser", p.getId());
     }
 }
