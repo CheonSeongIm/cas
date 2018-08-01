@@ -71,7 +71,11 @@ import static org.junit.Assert.*;
     CasCoreWebConfiguration.class,
     CasWebApplicationServiceFactoryConfiguration.class
 })
-@TestPropertySource(locations = "classpath:mongomonitor.properties")
+@TestPropertySource(properties = {
+    "cas.monitor.mongo.host=localhost",
+    "cas.monitor.mongo.port=8081",
+    "cas.monitor.mongo.dropCollection=true"
+})
 public class MongoDbHealthIndicatorTests {
 
     @ClassRule
