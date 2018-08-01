@@ -21,7 +21,13 @@ import static org.junit.Assert.*;
  * @author Misagh Moayyed
  * @since 5.2.0
  */
-@TestPropertySource(locations = {"classpath:/samlsp-mongo.properties"})
+@TestPropertySource(properties = {
+    "cas.authn.samlIdp.metadata.mongo.dropCollection=true",
+    "cas.authn.samlIdp.metadata.mongo.collection=samlResolver",
+    "cas.authn.samlIdp.metadata.mongo.host=localhost",
+    "cas.authn.samlIdp.metadata.mongo.port=8081",
+    "cas.authn.samlIdp.metadata.location=file:/tmp"
+    })
 public class MongoDbSamlRegisteredServiceMetadataResolverTests extends BaseMongoDbSamlMetadataTests {
     @Before
     public void initialize() throws Exception {
