@@ -36,7 +36,11 @@ import static org.junit.Assert.*;
     RefreshAutoConfiguration.class
 })
 @Category(MongoDbCategory.class)
-@TestPropertySource(locations = "classpath:mongo-consent.properties")
+@TestPropertySource(properties = {
+    "cas.consent.mongo.host=localhost",
+    "cas.consent.mongo.port=8081",
+    "cas.consent.mongo.dropCollection=true"
+    })
 public class MongoDbConsentRepositoryTests {
     @ClassRule
     public static final SpringClassRule SPRING_CLASS_RULE = new SpringClassRule();
